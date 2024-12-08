@@ -4,12 +4,12 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using Bulky.DataAccess.Data;
-using Bulky.DataAccess.Repository.IRepository;
+using BulkyBook.DataAccess.Data;
+using BulkyBook.DataAccess.Repository.IRepository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Razor;
 
-namespace Bulky.DataAccess.Repository
+namespace BulkyBook.DataAccess.Repository
 {
 
 	public class Repository<T> : IRepository<T> where T : class
@@ -20,7 +20,7 @@ namespace Bulky.DataAccess.Repository
 		public Repository(ApplicationDbContext db)
 		{
 			_db = db;
-			dbSet = _db.Set<T>();
+			this.dbSet = _db.Set<T>();
 			//_db.Categories == dbSet
 
 		}
@@ -43,14 +43,13 @@ namespace Bulky.DataAccess.Repository
 			return query.ToList();
 		}
 
+		public void Remove(T entity)
+		{
+			dbSet.Remove(entity);
+		}
 		public void RemoveRange(IEnumerable<T> entity)
 		{
 			dbSet.RemoveRange(entity);
-		}
-
-		public void Renove(T entity)
-		{
-			dbSet.Remove(entity);
 		}
 	}
 }
