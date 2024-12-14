@@ -36,7 +36,7 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
 			{
 				_unitOfWork.Category.Add(obj);
 				_unitOfWork.Save();
-				TempData["success"] = "Category Created succesfully";
+				TempData["success"] = "Category created succesfully";
 				return RedirectToAction("Index");
 			}
 			return View();
@@ -63,7 +63,7 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
 			{
 				_unitOfWork.Category.Update(obj);
 				_unitOfWork.Save();
-				TempData["success"] = "Category Updated succesfully";
+				TempData["success"] = "Category updated succesfully";
 				return RedirectToAction("Index");
 			}
 			return View();
@@ -93,7 +93,7 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
 			}
 			_unitOfWork.Category.Remove(obj);
 			_unitOfWork.Save();
-			TempData["success"] = "Category Deleted succesfully";
+			TempData["success"] = "Category deleted succesfully";
 			return RedirectToAction("Index");
 		}
 
