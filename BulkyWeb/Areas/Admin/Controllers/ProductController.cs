@@ -22,7 +22,7 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
 		}
 		public IActionResult Index()
 		{
-			List<Product> objProductList = _unitOfWork.Product.GetAll(IncludeProperties:"Category").ToList();
+			List<Product> objProductList = _unitOfWork.Product.GetAll(IncludeProperties: "Category").ToList();
 
 			return View(objProductList);
 		}
@@ -130,6 +130,19 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
 			TempData["success"] = "Product deleted succesfully";
 			return RedirectToAction("Index");
 		}
+		#region API CALLS
 
+		[HttpGet]
+		public IActionResult GetAll()
+		{
+			List<Product> objProductList = _unitOfWork.Product.GetAll(IncludeProperties: "Category").ToList();
+			return Json(new { data = objProductList });
+
+		}
+
+		#endregion
 	}
+
+
 }
+
