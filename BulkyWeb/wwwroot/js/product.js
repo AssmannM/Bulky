@@ -2,7 +2,7 @@
 //    loadDataTable();
 //});
 
-var dataTable;
+var dataTable;  // useable in all functions
 
 $(function () {
     loadDataTable()
