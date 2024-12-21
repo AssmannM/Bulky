@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using BulkyBook.DataAccess.Data;
 using BulkyBook.DataAccess.Repository.IRepository;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Razor;
 
 namespace BulkyBook.DataAccess.Repository
 {
